@@ -1,13 +1,12 @@
 #-----------------------------------------------------------------------------
-# Universidade Tecnológica Federal do Paraná - UTFPR
-# Makefile Customização da Classe abnTeX2 para as normas da UTFPR
-#
-# Projeto hospedado em: <link git>
+# Instituto Federal de Educação, Ciência e Tecnologia da Paraíba - IFPB
+# Makefile Customização da Classe abnTeX2 para as normas de TCC dos cursos da 
+# Unidade Acadêmica de Informação e Comunicação do IFPB
 #------------------------------------------------------------------------------
 
 # Definindo as variáveis
 
-SOURCE      = utfpr-tcc
+SOURCE      = ifpb-tcc
 LATEX       = pdflatex
 LATEXMK     = latexmk
 BIBTEX      = bibtex
