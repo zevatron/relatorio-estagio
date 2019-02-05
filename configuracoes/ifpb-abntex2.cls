@@ -11,7 +11,11 @@
 %%
 %% Further information about abnTeX2 are available on http://www.abntex.net.br/
 %%------------------------------------------------------------------------------
-
+% ---------------------------------------------------------------------------------------------------------------
+% TEMPLATE PARA TRABALHO DE CONCLUSÃO DE CURSO
+% Esse template foi adaptado para as normas de TCC dos cursos da Unidade Acadêmica de Informação 
+% e Comunicação do IFPB a partir do modelo fornecido pela:
+%------------------
 
 % -----------------------------------------------------------------------------
 % Universidade Tecnológica Federal do Paraná - UTFPR
