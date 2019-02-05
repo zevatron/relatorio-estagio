@@ -1,0 +1,85 @@
+% INTRODUÇÃO-------------------------------------------------------------------
+
+\chapter{Introdução}
+\label{chap:introducao}
+
+% Edite e coloque aqui o seu texto de introdução.
+
+% A Introdução é a parte inicial do texto, na qual devem constar o tema e a delimitação do assunto tratado, objetivos da pesquisa e outros elementos necessários para situar o tema do trabalho, tais como: justificativa, procedimentos metodológicos (classificação inicial), embasamento teórico (principais bases sintetizadas) e estrutura do trabalho, tratados de forma sucinta. Recursos utilizados e cronograma são incluídos quando necessário. Salienta-se que os procedimentos metodológicos e o embasamento teórico são tratados, posteriormente, em capítulos próprios e com a profundidade necessária ao trabalho de pesquisa.
+Este relatório descreve as atividades realizadas, no que diz respeito ao planejamento, desenvolvimento e execução de um dos projetos desenvolvidos pela SEDES, denominado de Veículos – Sistema de gestão de frotas do TRE-PB. O mesmo foi executado no exercício do estágio supervisionado no Tribunal Regional Eleitoral da Paraíba, localizado no Centro em João Pessoa.
+Serão explanados, tanto os conhecimentos teóricos, quanto os práticos, descrevendo todas as etapas do projeto. Também estarão presentes neste relatório informações referentes à empresa e sobre a unidade da empresa onde o projeto foi executado, além de informações sobre infra-estrutura.
+Por fim, serão mencionadas as correlações entre o conteúdo visto em sala de aula e o que foi feito na prática, bem como as principais dificuldades encontradas durante a execução do projeto.
+
+% \section{LEIA ESTA SEÇÃO ANTES DE COMEÇAR}
+% \label{sec:antesleiame}
+
+% Este documento é um \emph{template} \LaTeX{} que foi concebido, primariamente, para ser utilizado na elaboração de Trabalho de Conclusão de Curs em conformidade com as normas da Universidade Tecnológica Federal do Paraná.
+
+% Para a produção deste \emph{template} foi necessário adaptar o arquivo {\ttfamily abntex2.cls}. Assim, foi produzido o arquivo {\ttfamily utfpr-abntex2.cls} que define o \verb|documentclass| específico para a UTFPR.
+
+% Antes de começar a escrever o seu trabalho acadêmico utilizando este \emph{template}, é importante saber que há dois arquivos que você precisará editar para que a capa e a folha de rosto de seu trabalho sejam geradas automaticamente.
+% São eles os arquivos {\ttfamily capa.tex} e {\ttfamily folha-rosto.tex}, ambos no diretório  {\ttfamily /elementos-pre-textuais}.
+% No arquivo {\ttfamily capa.tex} deverá ser informado nome do autor, título do trabalho, natureza do trabalho, nome do orientador e outras informações necessárias.
+% No arquivo {\ttfamily folha-rosto.tex}, que contém o texto padrão estabelecendo que este documento é um requisito parcial para a obtenção do título pretendido, será necessário apenas comentar as linhas que não se aplicam ao tipo de trabalho acadêmico.
+
+% A compilação para gerar um arquivo no formato pdf, incluindo corretamente as referências bibliográficas, deve ser realizada utilizando o comando \verb|makefile|, disponível na mesma pasta onde está o arquivo principal \verb|utfpr-tcc.tex|. Caso seja alterado o nome do arquivo \verb|utfpr-tcc.tex|, deverá ser alterado no arquivo \verb|makefile| também.
+
+\section{Objetivo}
+\label{sec:objetivo}
+
+\subsection{Objetivo geral}
+\label{sec:objetivoGeral}
+Auxiliar no desenvolvimento dos ativos, soluções web desenvolvidas pela SEDES, no TRE-PB.  Para vistas deste relatório será utilizado como referência o projeto \imprimirtitulo. O sistema deverá ser capaz de receber solicitações dos usuários e exibi-las em um painel onde o gestor deverá analisar os pedidos e montar as viagens adequando: rotas, disponibilidades dos motoristas e passageiros. Nas atividades são contempladas todas as etapas descritas no Modelo de Desenvolvimento de Software adotado pelo TRE-PB.
+
+\subsection{Objetivos específicos}
+\label{sec:objetivosEspecificos}
+Contribuir na implementação do Sistema de Gestão de Frotas, quando possível oferecendo alternativas para a implementação mediante aos conhecimentos adquiridos na graduação. Ganhar experiência com o fluxo de trabalho da uma equipe de desenvolvimento incorporando conceitos de versionamento de código, sendo capaz de resolver conflitos de códigos, quando houver, e evita-los. Trabalhar com reuniões diárias utilizadas pela abordagem da metodologia SCRUM, planejamento das soluções com a modelagem do negócio e com entregas frequentes sempre buscando feedback das releases pelo cliente. 
+
+
+% \section{ORGANIZAÇÃO DO TRABALHO}
+% \label{sec:organizacaoTrabalho}
+
+% Normalmente ao final da introdução é apresentada, em um ou dois parágrafos curtos, a organização do restante do trabalho acadêmico.
+% Deve-se dizer o quê será apresentado em cada um dos demais capítulos.
+
+\section{A Empresa}\footnote{http://www.tre-pb.jus.br/institucional/conheca-o-tre-pb/conheca-o-tre-pb}
+\label{sec:empresa}
+A Justiça Eleitoral é o ramo especializado do Poder Judiciário que visa garantir a lisura, a eficiência e a eficácia do processo eleitoral, contribuindo para o fortalecimento da democracia e a consolidação do Estado de Direito. Compete à Justiça Eleitoral preparar, realizar e apurar as eleições, além de administrar o Cadastro Nacional de Eleitores.
+O principal objetivo da Justiça Eleitoral é o gerenciamento do processo eleitoral, através de diretrizes claras e firmes, evitando vícios, abusos e fraudes.
+O Tribunal Regional Eleitoral da Paraíba - TRE-PB, órgão máximo da Justiça Eleitoral no Estado, tem como instância superior, em matéria eleitoral, o Tribunal Superior Eleitoral, sediado em Brasília - Distrito Federal. A finalidade do TRE-PB é planejar e coordenar o processo eleitoral nas eleições federais, estaduais e municipais, no âmbito do Estado da Paraíba.
+Compete, também, ao Tribunal, julgar os recursos interpostos das decisões dos Juízes e Juntas Eleitorais do Estado, bem como, os processos originários e administrativos do próprio Tribunal; registrar os partidos e candidatos a cargos eletivos de Governador, Senador, Deputado Federal e Estadual, assim como, receber e analisar a prestação de contas dos mesmos, prestadas ao final de cada campanha estadual; analisar as prestações de contas anuais dos órgãos regionais dos partidos políticos; elaborar e fiscalizar o calendário estadual de propaganda eleitoral; proceder à anotação e cancelamento dos diretórios estaduais e municipais dos partidos políticos; julgar as impugnações relativas aos pedidos de registros de candidaturas e as arguições de inelegibilidade; designar os Juízes Titulares das Zonas Eleitorais do Estado da Paraíba e administrar o Cadastro de Eleitores.
+
+\section{Descrição geral das atividades}
+\label{sec:descricaoGeralAtividades}
+Durante o processo foram utilizadas as metodologias Scrum para gestão e planejamento dos projetos e o Kanban para o controle de fluxo do desenvolvimento. As atividades desenvolvidas no período do estágio foram as seguintes de acordo com as fases: 
+\begin{enumerate}
+    \item Imersão:
+    \begin{enumerate}
+        \item Elicitação das histórias de usuário.
+        \item Definição do escopo do produto.
+        \item Criar estrutura do projeto.
+        \item Modelagem de dados.
+    \end{enumerate}
+   \item Construção:
+   \begin{enumerate}
+        \item Refinar histórias de usuário.
+        \item Estimar histórias.
+        \item Codificação de funcionalidades.
+        \item Preparar versão para homologação.
+        \item Codificar ajustes.
+        \item Gerar documentação.
+        \item Implantar versão.
+   \end{enumerate}
+\end{enumerate}
+
+\section{Organização do relatório}
+\label{sec:organizacaoRelatorio}
+Além desse capítulo, o relatório está dividido em outros quatro capítulos brevemente descritos abaixo:
+
+Capítulo 2 - Embasamento Teórico: Aborda as tecnologias e linguagens que foram utilizadas durante o estágio, bem como as definições necessárias para a compreensão do processo.
+
+Capítulo 3 - \imprimirtitulo: apresenta o projeto, no qual as atividades do estagiário foram realizadas, descrevendo os principais conceitos, arquitetura e funcionalidades.
+
+Capítulo 4 – Atividades Realizadas: Relata as atividades realizadas ao longo do período de estágio; descreve o fluxo e o processo de desenvolvimento dessas atividades e detalha a implementação das funcionalidades.
+
+Capítulo 5 – Conclusão: São feitas as considerações finais, ou seja, um relato sobre as experiências adquiridas, metas e objetivos alcançados, o que poderia ter sido feito para obter um melhor resultado final, erros cometidos e trabalhos futuros.
