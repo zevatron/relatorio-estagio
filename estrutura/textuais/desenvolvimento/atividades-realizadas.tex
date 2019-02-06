@@ -23,7 +23,7 @@ Nesse capítulo será explanada minha participação no processo de desenvolvime
 
 Uma reunião inicial é realizada entre todos os interessados. A COSIS reúne o gestor do sistema, o time de desenvolvimento e o cliente. 
 
-Para o time já se inicia um processo de imersão, onde após ouvir as necessidades descritas pelo cliente começa a imaginar e descrever os possíveis requisitos necessários para a solução. 
+Para o time já se inicia o processo de imersão, onde após ouvir as necessidades descritas pelo cliente começa a imaginar e descrever os possíveis requisitos necessários para a solução. 
 Toda reunião realizada entre a equipe e o cliente é descrita cronologicamente e fica publicada na categoria de Atas/Reuniões da SEDES na sitio Wiki do TRE-PB, com a data, hora de início e fim e o nome de todos os participantes, conforme \autoref{fig:figura-ataReuniao1}. Dessa forma todos tem acesso ao que realmente foi solicitado.
 
 \begin{figure}[!htb]
@@ -39,7 +39,7 @@ Posteriormente o time volta a se reunir e descrever as histórias de usuário na
 \section{Planejamento}
 \label{sec:atividadesRealizadasPlanejamento}
 
-Todos os membros do time se reúnem para medir o tamanho de cada atividade. Uma a uma é analisada e discutida por cada membro do time onde cada um expõe e justifica o tamanho dado através da técnica do Planning Poker. Após um concesso entre todos fica definido o tamanho da atividade. Assim o gerente com esses dados em mãos formaliza o projeto como uma demanda de serviço, contendo o prazo o time necessário para concluir as releases.
+Todos os membros do time se reúnem para medir o tamanho de cada atividade. Uma a uma, as atividades são analisadas e discutidas por cada membro do time onde cada um expõe sua opinião e justifica o tamanho da atividade mesurado através da técnica do Planning Poker. Após um consenso entre todos, fica definido o tamanho da atividade. Assim o gerente com esses dados em mãos, formaliza o projeto como uma demanda de serviço, contendo o prazo e o time necessário para concluir as releases.
 
 \begin{citacao}
 Após a autorização, o gestor do sistema promoverá a reunião de
@@ -62,7 +62,7 @@ As releases definidas são apresentadas como as versões que serão entregues e 
 \section{Desenvolvimento}
 \label{sec:atividadesRealizadasDesenvolvimento}
 
-No início da fase de desenvolvimento são gerados os primeiros artefatos em código que serão comuns para todos os membros do time. O TRE-PB utiliza para controle de versões de seus códigos o sistema de versionamento denominado Subversion (SVN). Um novo repositório é criado para o projeto e um novo projeto com um arcabouço contendo as bibliotecas padrões e um template para as páginas já utilizadas pela SEDES é criado disponibilizado no repositório para todos os desenvolvedores. A SISBAN através de um chamado gera um novo schema no banco de dados Oracle 12g e fornece acesso a todos os desenvolvedores.
+No início da fase de desenvolvimento são gerados os primeiros artefatos em código que serão comuns para todos os membros do time. O TRE-PB utiliza para controle de versões de seus códigos o sistema de versionamento denominado Subversion (SVN). Um novo repositório é criado para o projeto e um novo projeto com um arcabouço contendo as bibliotecas padrões e um template para as páginas já utilizadas pela SEDES é criado e disponibilizado no repositório para todos os desenvolvedores. A SISBAN. que através de um chamado, gera um novo schema no banco de dados Oracle 12g e fornece acesso a todos os desenvolvedores.
 
 Todo esse processo é inicialmente implementado pelo supervisor técnico que geralmente é o desenvolvedor responsável pelo projeto e com mais habilidades e experiência do time.
 
@@ -78,5 +78,33 @@ Na \autoref{fig:figura-atividade8940} a seguir é possível ver uma tarefa espec
     \includegraphics[width=0.75\textwidth]{dados/figuras/veiculos-atividade1.png}
     \fonte{SEDES}
     \label{fig:figura-atividade8940}
+\end{figure}
+
+
+\subsection{Criando as tabelas no banco}
+\label{sbs:desenvolvimentoMapeamento}
+
+Com o domínio do problema já definido são então criadas as tabelas do banco de dados com seus atributos, relacionamentos e restrições.
+Scripts em SQL são gerados, conforme exemplo da \autoref{fig:figura-scriptSQL}, para cada tabela, levando em consideração as particularidades da sintaxe SQL para o banco de dados Oracle. 
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Script SQL}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/scriptSQL.png}
+    \fonte{SEDES}
+    \label{fig:figura-scriptSQL}
+\end{figure}
+
+\subsection{Mapeando o modelo com o banco}
+\label{sbs:desenvolvimentoMapeamento}
+
+Com as tabelas já criadas e relacionadas, começa-se a codificação propriamente dita na linguagem Java. As classes do modelo são codificadas com seus respectivos atributos e métodos e mapeadas através da interface JPA. Na \autoref{fig:figura-entidade} é possível ver a entidade que define um veículo na aplicação já com as anotações que a mapeiam com o banco de dados.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Entidade Java - Veículo}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/entidade.png}
+    \fonte{SEDES}
+    \label{fig:figura-entidade}
 \end{figure}
 
