@@ -19,7 +19,7 @@ O sistema é hoje um ativo de TI que foi desenvolvido pela SEDES e está descrit
     \label{fig:figura-ativoTI}
 \end{figure}
 
-O sistema permite a qualquer membro e servidor lotado no TRE-PB, através do seu login de usuário, solicitar um veículo descrevendo a data, local/trecho, hora de partida, hora de retorno e a atividade que deverá ser realizada como pode ser visto na \autoref{fig:figura-solicitacao}.
+O sistema permite a qualquer membro e servidor lotado no TRE-PB, através do seu login de usuário, solicitar um veículo descrevendo a data, local/trecho, hora de partida, hora de retorno, a atividade que deverá ser realizada e quais passageiros irão para o mesmo destino, como pode ser visto na \autoref{fig:figura-solicitacao}.
 
 \begin{figure}[!htb]
     \centering
@@ -29,7 +29,7 @@ O sistema permite a qualquer membro e servidor lotado no TRE-PB, através do seu
     \label{fig:figura-solicitacao}
 \end{figure}
 
-O gestor lotado na COSEG, possui um perfil de administrador e em sua tela recebe as solicitações de todos os servidores e membros. Com a visão de todas as solicitações o gestor tem a possibilidade de analisar passageiros que irão para os mesmos destinos, ou até mesmo na rota, com horários similares e montar as viagens adequando a disponibilidade de motoristas e veículos. Através de um quadro, exibido na figura \autoref{fig:figura-motoristas}, o gestor consegue visualizar a ocupação dos veículos e motoristas pelo horário e dia da semana. Com a viagem montada e deferida pelo gestor, o solicitante recebe uma confirmação em seu e-mail informando os detalhes da viagem. Os motoristas recebem uma guia contendo a autorização e detalhes da viagem como a rota e os passageiros. Nessa guia o motorista deve anotar a quilometragem do veículo e exibir para o vigia que deve conferir os valores e permitir a saída do veículo. No retorno o motorista novamente anota na guia a quilometragem de chegada que é conferida pelo vigia.
+O gestor lotado na SETRAN, possui um perfil de administrador e em sua tela recebe as solicitações de todos os servidores e membros. Com a visão de todas as solicitações o gestor tem a possibilidade de analisar passageiros que irão para os mesmos destinos, ou até mesmo na rota, com horários similares e montar as viagens adequando a disponibilidade de motoristas e veículos. Através de um quadro, exibido na figura \autoref{fig:figura-motoristas}, o gestor consegue visualizar a ocupação dos veículos e motoristas pelo horário e dia da semana. Com a viagem montada e deferida pelo gestor, o solicitante recebe uma confirmação em seu e-mail informando os detalhes da viagem. Os motoristas recebem uma guia contendo a autorização e detalhes da viagem como a rota e os passageiros. Nessa guia o motorista deve anotar a quilometragem do veículo e exibir para o vigia que deve conferir os valores e permitir a saída do veículo. No retorno o motorista novamente anota na guia a quilometragem de chegada que é conferida pelo vigia.
 
 A modelagem inicial do sistema, na versão 1.0.0, não possuia uma separação dos modelos entre solicitação e viagem. Isso acabou ocasionando um gargalo no desenvolvimento, pois surgiram feedbacks ao longo das etapas, como pode ser visto na ata de reunião na \autoref{fig:figura-ata1}, em que há casos de uma solicitação necessitar de mais de uma viagem para ser concluída e uma viagem poder atender mais de uma solicitação. A aplicação precisou ser refatorada e um novo prazo foi apresentado.
 
