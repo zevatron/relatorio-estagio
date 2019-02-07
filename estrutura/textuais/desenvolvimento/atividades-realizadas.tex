@@ -1,7 +1,13 @@
 % ATIVIDADES REALIZADAS------------------------------------------------------------------
 
-\chapter{\imprimirtitulo}
+\chapter{Atividades realizadas}
 \label{chap:atividadesRealizadas}
+
+Nesse capítulo será explanada minha participação no processo de desenvolvimento do projeto o qual tive a oportunidade de participar desde a concepção, homologação, correção de problemas, criação de uma nova versão com expressiva mudança no modelo de dados e implementação da aplicação em produção.
+
+\section{\imprimirtitulo}
+\label{sec:atividadesRealizadasVeiculos}
+
 O projeto \imprimirtitulo \space foi concebido com o objetivo de controlar as solicitações de veículos e as viagens realizadas, promovendo uma melhor gestão da frota de veículos do TRE-PB bem como possibilitando a realização de auditorias com base nos dados contidos no sistema.
 O sistema é hoje um ativo de TI que foi desenvolvido pela SEDES e está descrito no catálogo técnico de sistemas da COSIS conforme \autoref{fig:figura-ativoTI}. 
 
@@ -13,10 +19,39 @@ O sistema é hoje um ativo de TI que foi desenvolvido pela SEDES e está descrit
     \label{fig:figura-ativoTI}
 \end{figure}
 
+O sistema permite a qualquer membro e servidor lotado no TRE-PB, através do seu login de usuário, solicitar um veículo descrevendo a data, local/trecho, hora de partida, hora de retorno e a atividade que deverá ser realizada como pode ser visto na \autoref{fig:figura-solicitacao}.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Veículos - Tela de solicitação}
+    \includegraphics[width=0.75\textwidth]{./dados/figuras/veiculos-tela1.png}
+    \fonte{SEDES}
+    \label{fig:figura-solicitacao}
+\end{figure}
+
+O gestor lotado na COSEG, possui um perfil de administrador e em sua tela recebe as solicitações de todos os servidores e membros. Com a visão de todas as solicitações o gestor tem a possibilidade de analisar passageiros que irão para os mesmos destinos, ou até mesmo na rota, com horários similares e montar as viagens adequando a disponibilidade de motoristas e veículos. Através de um quadro, exibido na figura \autoref{fig:figura-motoristas}, o gestor consegue visualizar a ocupação dos veículos e motoristas pelo horário e dia da semana. Com a viagem montada e deferida pelo gestor, o solicitante recebe uma confirmação em seu e-mail informando os detalhes da viagem. Os motoristas recebem uma guia contendo a autorização e detalhes da viagem como a rota e os passageiros. Nessa guia o motorista deve anotar a quilometragem do veículo e exibir para o vigia que deve conferir os valores e permitir a saída do veículo. No retorno o motorista novamente anota na guia a quilometragem de chegada que é conferida pelo vigia.
+
+A modelagem inicial do sistema, na versão 1.0.0, não possuia uma separação dos modelos entre solicitação e viagem. Isso acabou ocasionando um gargalo no desenvolvimento, pois surgiram feedbacks ao longo das etapas, como pode ser visto na ata de reunião na \autoref{fig:figura-ata1}, em que há casos de uma solicitação necessitar de mais de uma viagem para ser concluída e uma viagem poder atender mais de uma solicitação. A aplicação precisou ser refatorada e um novo prazo foi apresentado.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Veículos - Tela de solicitação}
+    \includegraphics[width=0.75\textwidth]{./dados/figuras/veiculos-tela2.png}
+    \fonte{SEDES}
+    \label{fig:figura-motoristas}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Ata de reunião - feedback}
+    \includegraphics[width=1\textwidth]{./dados/figuras/veiculos-ata1.png}
+    \fonte{SEDES}
+    \label{fig:figura-ata1}
+\end{figure}
+
 O desenvolvimento do sistema passou por todas as etapas de um projeto de software conforme descrição no modelo de desenvolvimento de software no Anexo \ref{chap:anexoA}. Esse modelo foi construído a partir de definições estabelecidas em portarias, conforme exemplo, no Anexo \ref{chap:anexoB} da última publicada pela Diretoria Geral do TRE-PB no que se diz respeito aos padrões de governança em Tecnologia da Informação.
 O processo de desenvolvimento e manutenção de software se inicia com a autorização de análise do problema, visando à elaboração de proposta de solução  \cite[p.~2]{Portaria37:2017}.
-
-Nesse capítulo será explanada minha participação no processo de desenvolvimento do projeto o qual tive a oportunidade de participar desde a concepção, homologação, correção de problemas, criação de uma nova versão com expressiva mudança no modelo de dados e implementação da aplicação em produção. 
+ 
 
 \section{A análise do problema}
 \label{sec:atividadesRealizadasInicio}
