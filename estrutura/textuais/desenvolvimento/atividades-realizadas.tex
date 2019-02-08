@@ -143,6 +143,46 @@ Com as tabelas já criadas e relacionadas, começa-se a codificação propriamen
     \label{fig:figura-entidade}
 \end{figure}
 
-\subsection{Injeção de dependência no controller }
+\subsection{MVC}
 
-As aplicações em JEE obedecem o padrão de projeto denominado MVC. 
+As aplicações em Web desenvolvidas no TRE-PB que utilizam o JEE obedecem o padrão de projeto denominado MVC. O código tem uma divisão lógica. 
+Na camada de modelo(Model) temos as entidades que definem o domínio da aplicação como pode ser visto na \autoref{sbs:desenvolvimentoMapeamento}. 
+Na camada de visão(View) da aplicação temos as páginas JSF que irão conter os componentes visuais da aplicação, como é o caso de formulários, botões, texto, entre outros, e foram desenvolvidos utilizando o framework JSF. 
+
+O JSF faz uso de beans\footnote{São classes escritas de acordo com uma convenção em particular. São usados para encapsular muitos objetos em um único objeto (o bean). https://pt.wikipedia.org/wiki/JavaBeans} Java para possibilitar a separação do código de apresentação(View) do código de negócio(Control). Por sua vez, uma página JSF referencia um ou mais beans, que são classes Java que armazenam os código necessários para apresentação dos dados nas páginas da aplicação. 
+
+Estes beans têm seu ciclo de vida gerenciado pelo JSF, sendo assim chamados de Managed Beans.
+Os managed beans do JSF fazem o papel de controladores da nossa aplicação. Eles recebem um estímulo da camada de visão para a execução de alguma operação e em seguida delegam esta execução à classe de negócio responsável, que são denominadas classes Manager. Após a execução da regra de negócio o controlador repassa o resultado da operação à camada de visão.
+
+As classes Manager implementam as regras de negócio da aplicação. Essas camadas de serviço visam encapsular, isolar o código de negócio da aplicação, podendo serem reutilizadas em outras visões(beans) da aplicação. Essas classes tem acesso aos objetos da camada de persistência DAO através do Framework Spring que utiliza o conceito de injeção de dependências. Veja o exemplo na \autoref{fig:figura-manager}. 
+O Spring possui uma arquitetura baseada em interfaces e POJOs, oferecendo aos POJOs, no caso representados pelas classes do modelo, características como mecanismos de segurança e controle de transações \cite{WikipediaSpring2017}. 
+
+Por último temos a camada de persistência DAO. Esses objetos são responsáveis pelas operações realizadas no banco de dados. A utilização do mesmo é um bom padrão de desenvolvimento, pois separa as regras de negócio da aplicação das operações de manipulação do banco de dados. Os objetos DAO fazem uso de um objeto do tipo EntityManager, que é criado pelo Hibernate e injetado pelo Spring no DAO. 
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Manager Java - Veículo}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/manager.png}
+    \fonte{SEDES}
+    \label{fig:figura-manager}
+\end{figure}
+
+
+
+\section{Homologação}
+\label{sec:atividadesRealizadasHomologacao}
+
+Ao final de cada Sprint 
+
+
+
+\section{Documentação}
+\label{sec:atividadesRealizadasDocumentacao}
+
+
+\section{Produção}
+\label{sec:atividadesRealizadasProdução}
+
+
+\section{Encerramento}
+\label{sec:atividadesRealizadasEncerramento}
