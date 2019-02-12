@@ -3,7 +3,7 @@
 \chapter{Atividades realizadas}
 \label{chap:atividadesRealizadas}
 
-Nesse capítulo será explanada minha participação no processo de desenvolvimento do projeto o qual tive a oportunidade de participar desde a concepção, homologação, correção de problemas, criação de uma nova versão com expressiva mudança no modelo de dados e implementação da aplicação em produção.
+Nesse capítulo será explanada minha participação no processo de desenvolvimento do projeto o qual tive a oportunidade de participar desde a concepção, homologação, correção de problemas, criação de uma nova versão com expressiva mudança no modelo de dados até a implementação da aplicação em produção.
 
 \section{\imprimirtitulo}
 \label{sec:atividadesRealizadasVeiculos}
@@ -74,7 +74,7 @@ Posteriormente o time volta a se reunir e descrever as histórias de usuário na
 \section{Planejamento}
 \label{sec:atividadesRealizadasPlanejamento}
 
-Todos os membros do time se reúnem para medir o tamanho de cada atividade. Uma a uma, as atividades são analisadas e discutidas por cada membro do time onde cada um expõe sua opinião e justifica o tamanho da atividade mesurado através da técnica do Planning Poker. Após um consenso entre todos, fica definido o tamanho da atividade. Assim o gerente com esses dados em mãos, formaliza o projeto como uma demanda de serviço, contendo o prazo e o time necessário para concluir as releases.
+Todos os membros do time se reúnem para medir o tamanho de cada atividade. Uma a uma, as atividades são analisadas e discutidas por cada membro do time onde cada um expõe sua opinião e justifica o tamanho da atividade mensurada através da técnica do Planning Poker. Após um consenso entre todos, fica definido o tamanho da atividade. Assim o gerente, com esses dados em mãos, formaliza o projeto como uma demanda de serviço, contendo o prazo e o time necessário para concluir as releases.
 
 \begin{citacao}
 Após a autorização, o gestor do sistema promoverá a reunião de
@@ -157,7 +157,7 @@ Os managed beans do JSF fazem o papel de controladores da nossa aplicação. Ele
 As classes Manager implementam as regras de negócio da aplicação. Essas camadas de serviço visam encapsular, isolar o código de negócio da aplicação, podendo serem reutilizadas em outras visões(beans) da aplicação. Essas classes tem acesso aos objetos da camada de persistência DAO através do Framework Spring que utiliza o conceito de injeção de dependências. Veja o exemplo na \autoref{fig:figura-manager}. 
 O Spring possui uma arquitetura baseada em interfaces e POJOs, oferecendo aos POJOs, no caso representados pelas classes do modelo, características como mecanismos de segurança e controle de transações \cite{WikipediaSpring2017}. 
 
-Por último temos a camada de persistência DAO. Esses objetos são responsáveis pelas operações realizadas no banco de dados. A utilização do mesmo é um bom padrão de desenvolvimento, pois separa as regras de negócio da aplicação das operações de manipulação do banco de dados. Os objetos DAO fazem uso de um objeto do tipo EntityManager, que é criado pelo Hibernate e injetado pelo Spring no DAO. 
+Por último temos a camada de persistência DAO. Esses objetos são responsáveis pelas operações realizadas no banco de dados. A utilização do mesmo é um bom padrão de desenvolvimento, pois separa as regras de negócio da aplicação das operações de manipulação do banco de dados. Os objetos DAO fazem uso de um objeto do tipo EntityManager, que é criado pelo Hibernate e também utilizam o Spring para realizar a injeção de dependências no DAO, veja o exemplo na \autoref{fig:figura-dao}. 
 
 \begin{figure}[!htb]
     \centering
@@ -167,22 +167,51 @@ Por último temos a camada de persistência DAO. Esses objetos são responsávei
     \label{fig:figura-manager}
 \end{figure}
 
+\begin{figure}[!htb]
+    \centering
+    \caption{DAO Java - Veículo}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/dao.png}
+    \fonte{SEDES}
+    \label{fig:figura-dao}
+\end{figure}
 
 
 \section{Homologação}
 \label{sec:atividadesRealizadasHomologacao}
 
-Ao final de cada Sprint 
+Ao final de cada Sprint é apresentada para o cliente uma prévia do que está sendo desenvolvido. A aplicação é então colocada em um servidor específico para sistemas em homologação rodando um Tomcat. Um schema no banco de dados também é criado e o código é compilado com as particularidades do ambiente de homologação que contém caminhos e usuários diferentes na rede para o banco de dados e servidores LDAP de autenticação. 
+
+O desenvolvedor responsável pela homologação, em seu próprio computador muda, na IDE, o perfil de desenvolvimento para homologação e realiza o comando de compilação do código. Como resultado ele tem um arquivo no formato WAR e está pronto para realizar o "deploy" enviando o arquivo para servidor.
+
+Em alguns casos a funcionalidade apresentada já pode ser utilizada para realizar cadastros pelo cliente e caso não aconteçam mudanças significativas no modelo esses dados podem ser importados quando a aplicação entrar em produção. 
 
 
 
 \section{Documentação}
 \label{sec:atividadesRealizadasDocumentacao}
 
+A documentação ocorre após a apresentação das releases e aplicação dos ajustes, caso ocorram. O objetivo dessa tarefa é fazer a inclusão ou atualização do produto no catálogo de  produtos e a elaboração ou atualização do manual do usuário, que contempla as histórias implementadas e descreve passo a passo como realizar as tarefas. O manual é apresentado no formato PDF e é compilado junto com a aplicação que contém um link de ajuda apontando para o manual.
+
 
 \section{Produção}
 \label{sec:atividadesRealizadasProdução}
 
+Após a entrega da última release prevista no escopo do projeto e a realização dos testes pelo cliente no servidor de homologação, já com as correções e ajustes sugeridas, ocorre a implantação da aplicação no servidor de produção. Um processo similar ao de implantação em homologação, porém com algumas particularidades.
+
+Com o schema no banco de produção já criado e todas as tabelas e dados já implementados, o desenvolvedor responsável compila em sua IDE com o perfil de produção e realiza o deploy do aquivo WAR no servidor identificado pelo número da sua versão.
+
+\begin{citacao}
+... processo de levar código do desenvolvimento e teste para produção. É comum chamar esse processo de deploy em ambiente de
+produção. Em português é até possível ouvir o neologismo deploiar, ou então o termo correto em português, que seria“implantar”. \cite[p.~19]{Sato2014}
+\end{citacao}
+
+A versão é numerada com dígitos na forma X.Y.Z. Os dois primeiros dígitos mais significativos (X e Y) são utilizados para incrementar o número de versão e o último (Z) para patches com correções de bugs. Uma  TAG\footnote{ É apenas um “snapshot” do projeto no tempo. http://svnbook.red-bean.com/en/1.7/svn.branchmerge.tags.html} é então criada no sistema de controle de versões SVN e contém o número de versão e sua descrição e serve para permitir recuperar o código-fonte, caso seja necessário, conforme a versão foi construída. O cliente é então informado formalmente que a versão está disponível para uso em produção.
 
 \section{Encerramento}
 \label{sec:atividadesRealizadasEncerramento}
+
+A execução das atividades de finalização do projeto se iniciam com a formalização, pelo responsável de suporte de negócio, sobre discussões de melhorias do projeto, do modelo/arquitetura utilizada, dos  procedimentos, das técnicas e do método de desenvolvimento. 
+
+O gerente do projeto realiza uma reunião final de entrega do produto com o time e o cliente, na qual deverá ser definido o responsável pelo suporte de negócio do produto. Preferencialmente, o gestor do sistema, ou alguém por ele delegado, deve assumir este papel, que consiste em esclarecer as dúvidas negociais reportadas pelos usuários do produto. À SEDES caberá o suporte técnico para correções e melhorias no sistema. Após a reunião comunica-se o encerramento do projeto aos interessados através de e-mail ou despacho/documento em processo administrativo.
+
+As lições aprendidas deverão gerar oportunidades de melhorias que deverão ser incluídas no backlog de demandas da SEDES para implementação em momento oportuno e adoção em futuros projetos.
