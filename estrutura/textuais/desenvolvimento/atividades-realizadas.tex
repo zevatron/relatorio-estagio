@@ -144,6 +144,7 @@ Com as tabelas já criadas e relacionadas, começa-se a codificação propriamen
 \end{figure}
 
 \subsection{MVC}
+\label{sbs:desenvolvimentoMVC}
 
 As aplicações em Web desenvolvidas no TRE-PB que utilizam o JEE obedecem o padrão de projeto denominado MVC. O código tem uma divisão lógica. 
 Na camada de modelo(Model) temos as entidades que definem o domínio da aplicação como pode ser visto na \autoref{sbs:desenvolvimentoMapeamento}. 
@@ -174,6 +175,15 @@ Por último temos a camada de persistência DAO. Esses objetos são responsávei
     \fonte{SEDES}
     \label{fig:figura-dao}
 \end{figure}
+
+
+\subsection{Guia de autorização}
+\label{sbs:desenvolvimentoJasper}
+
+Após uma viagem ser deferida, o operador do sistema na SETRAN emite a guia de autorização para entregar ao motorista. Essa guia é um arquivo em formato PDF e é fornecida pela aplicação na forma de um link para download contendo os dados da viagem. Para criação desse arquivo foram utilizadas as bibliotecas do framework JasperReports. 
+
+Um arquivo de template é criado, compilado e invocado. Esse template formata o posicionamento dos textos no papel conforme \autoref{}, nesse caso foi utilizado o papel no formato A5.
+No trecho a seguir na \autoref{} é possível ver a invocação do template pelo código java passando dados da viagem como parâmetros.
 
 
 \section{Homologação}
