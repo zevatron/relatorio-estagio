@@ -64,6 +64,23 @@ A abstração do JPA é a sua maior característica, permitindo que o programado
 \section{Spring Framework}
 \label{sec:embasamentoTeoricoSpring}
 
+O Spring surgiu em 2003 como uma resposta à complexidade das primeiras especificações do J2EE. Enquanto alguns consideram que Java EE e Spring estão competindo, o Spring é, de fato, complementar ao Java EE. O modelo de programação Spring não abrange a especificação da plataforma Java EE; em vez disso, integra-se com especificações individuais cuidadosamente selecionadas do JavaEE:
+
+\begin{itemize}
+    \item Servlet API (JSR 340)
+    \item WebSocket API (JSR 356)
+    \item Concurrency Utilities (JSR 236)
+    \item JSON Binding API (JSR 367)
+    \item Bean Validation (JSR 303)
+    \item JPA (JSR 338)
+    \item JMS (JSR 914)
+\end{itemize}
+
+O framework também suporta injeção de dependências (JSR 330)  e anotações comuns (JSR 250), que os desenvolvedores de aplicativos podem usar em vez dos mecanismos específicos do Spring.
+
+\subsection{Anotações de Estereótipo}
+São anotações usadas para declarar a função que o componente desempenha na aplicação. Por exemplo, a anotação @Repository no Spring Framework é uma marcação para qualquer classe que atenda a função de um repositório (também conhecido como Data Access Object ou DAO).
+
 \section{JasperReports}
 \label{sec:embasamentoTeoricoJasper}
 
