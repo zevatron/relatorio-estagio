@@ -50,15 +50,12 @@ PrimeFaces\footnote{https://primefaces.org/} é uma biblioteca Open Source de co
 Os componentes do PrimeFaces foram construídos para usar AJAX por padrão, com isso o desenvolvedor não precisa ter a preocupação de realizar chamadas assíncronas para o servidor. O PrimeFaces também conta com um conjunto de temas (skins), que permite, de forma fácil mudar a aparência das aplicações.
 A grande característica do PrimeFaces é a sua simplicidade. Não é necessário configurar nenhum XML. Para utilizá-lo, basta colocar a biblioteca no projeto. Tudo isso está muito bem documentado no site do PrimeFaces, que também possui vários exemplos de código \cite{Civici2015}.
 
-\section{JPA}
+\section{JPA e Hibernate}
 \label{sec:embasamentoTeoricoJPA}
 
 Java Persistense API\footnote{ http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html} ou JPA é uma especificação criada em 2006 a partir do Hibernate\footnote{http://hibernate.org/}, que é um framework de mapeamento objeto-relacional (ORM), tendo em vista que outros frameworks estavam surgindo foi necessário criar um padrão com o intuito de resolver o famoso vendor lock-in, ou seja, uma vez usando determinada distribuição, ficava-se preso à mesma \cite[p.~12]{Cordeiro2014}.
 
 A abstração do JPA é a sua maior característica, permitindo que o programador troque o banco de dados sem maiores dificuldades. No projeto \imprimirtitulo \space foi usado o Hibernate através da especificação JPA.O uso da JPA é feito através de anotações na classe que representa o objeto que será persistido. Esse processo de anotar/configurar classes chama-se mapeamento. As classes depois de mapeadas são reconhecidas pelo Hibernate, que faz o seu processo natural de converter esse objeto para uma tabela no banco de dados \cite{Cordeiro2014}.
-
-\section{Hibernate}
-\label{sec:embasamentoTeoricoHibernate}
 
 
 \section{Spring Framework}
