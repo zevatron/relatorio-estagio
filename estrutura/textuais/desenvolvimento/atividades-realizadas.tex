@@ -35,7 +35,7 @@ A modelagem inicial do sistema, na versão 1.0.0, não possuia uma separação d
 
 \begin{figure}[!htb]
     \centering
-    \caption{Veículos - Tela de solicitação}
+    \caption{Veículos - Painel de veículos e viagens}
     \includegraphics[width=0.75\textwidth]{./dados/figuras/veiculos-tela2.png}
     \fonte{SEDES}
     \label{fig:figura-motoristas}
@@ -183,7 +183,16 @@ Por último temos a camada de persistência DAO. Esses objetos são responsávei
 Após uma viagem ser deferida, o operador do sistema na SETRAN emite a guia de autorização para entregar ao motorista. Essa guia é um arquivo em formato PDF e é fornecida pela aplicação na forma de um link para download contendo os dados da viagem. Para criação desse arquivo foram utilizadas as bibliotecas do framework JasperReports. 
 
 Um arquivo de template é criado, compilado e invocado. Esse template formata o posicionamento dos textos no papel conforme \autoref{}, nesse caso foi utilizado o papel no formato A5.
-No trecho a seguir na \autoref{} é possível ver a invocação do template pelo código java passando dados da viagem como parâmetros.
+No trecho exibido pela \autoref{fig:figura-jasperreports} é possível ver a invocação do template pelo código java passando dados da viagem como parâmetros.
+
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Bean do Formulário- Veículo}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/veiculos-jasperreports.png}
+    \fonte{SEDES}
+    \label{fig:figura-jasperreports}
+\end{figure}
 
 
 \section{Homologação}
