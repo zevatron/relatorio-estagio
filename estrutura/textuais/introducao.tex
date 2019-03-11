@@ -3,44 +3,44 @@
 \chapter{Introdução}
 \label{chap:introducao}
 
-% Edite e coloque aqui o seu texto de introdução.
-
-% A Introdução é a parte inicial do texto, na qual devem constar o tema e a delimitação do assunto tratado, objetivos da pesquisa e outros elementos necessários para situar o tema do trabalho, tais como: justificativa, procedimentos metodológicos (classificação inicial), embasamento teórico (principais bases sintetizadas) e estrutura do trabalho, tratados de forma sucinta. Recursos utilizados e cronograma são incluídos quando necessário. Salienta-se que os procedimentos metodológicos e o embasamento teórico são tratados, posteriormente, em capítulos próprios e com a profundidade necessária ao trabalho de pesquisa.
 Este relatório descreve as atividades realizadas, no que diz respeito ao planejamento, desenvolvimento e execução de um dos projetos desenvolvidos pela SEDES, denominado de Veículos – Sistema de gestão de frotas do TRE-PB. O mesmo foi executado no exercício do estágio supervisionado no Tribunal Regional Eleitoral da Paraíba, localizado no Centro em João Pessoa.
-Serão explanados, tanto os conhecimentos teóricos, quanto os práticos, descrevendo todas as etapas do projeto. Também estarão presentes neste relatório informações referentes à empresa e sobre a unidade da empresa onde o projeto foi executado, além de informações sobre infra-estrutura.
+
+O projeto teve inicio em abril de 2017 e a versão 1.0 foi entregue na metade de maio de 2017 e continha cadastros inciais como colaboradores e veículos. A versão 1.1 se estendeu até julho de 2017 e continha as principais funcionalidades da aplicação que de fato iriam realizar o controle das viagens. O projeto tinha previsão para ser concluído em até dois meses, porém uma mudança substancial do modelo teve que ser efetuada durante a fase de desenvolvimento da versão 1.1, como pode ser visto na ata de reunião descrita na \autoref{fig:figura-ata1} e então o projeto se estendeu para cinco meses. Ele foi supervisionado pelo chefe da SEDES, Francisco Gomes, bem como acompanhado pelo supervisor técnico, que é o desenvolvedor responsável pelo projeto que também precisou ser substituído, todos efetivos no quadro do Tribunal. A equipe no projeto ficou composta por 1 gerente e 3 desenvolvedores, sendo 1 supervisor técnico e 2 estagiários, 1 Product Owner e 1 DBA responsável pelo gerenciamento do banco de dados, este lotado na SISBAN.
+
+O sistema passou a ser utilizado em sua plenitude a partir de agosto de 2017 e em 2018 terminou o ano sendo o 4º sistema mais usado em todo o TRE com 23.375 transações conforme \autoref{fig:figura-ranking2018}. Já em 2019, até março foram registradas 4.006 transações já sendo o 3º sistema mais utilizado como pode ser visto na \autoref{fig:figura-ranking2019}.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Veículos - Ranking 2018}
+    \includegraphics[width=0.75\textwidth]{./dados/figuras/ranking2018.png}
+    \fonte{SEDES}
+    \label{fig:figura-ranking2018}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Veículos - Ranking 2019}
+    \includegraphics[width=0.75\textwidth]{./dados/figuras/ranking2019.png}
+    \fonte{SEDES}
+    \label{fig:figura-ranking2019}
+\end{figure}
+
+Nesse relatório serão explanados, tanto os conhecimentos teóricos, quanto os práticos, descrevendo todas as etapas do projeto. Também estarão presentes neste relatório informações referentes à empresa e sobre a unidade da empresa onde o projeto foi executado, além de informações sobre infra-estrutura.
 Por fim, serão mencionadas as correlações entre o conteúdo visto em sala de aula e o que foi feito na prática, bem como as principais dificuldades encontradas durante a execução do projeto.
 
-% \section{LEIA ESTA SEÇÃO ANTES DE COMEÇAR}
-% \label{sec:antesleiame}
-
-% Este documento é um \emph{template} \LaTeX{} que foi concebido, primariamente, para ser utilizado na elaboração de Trabalho de Conclusão de Curs em conformidade com as normas da Universidade Tecnológica Federal do Paraná.
-
-% Para a produção deste \emph{template} foi necessário adaptar o arquivo {\ttfamily abntex2.cls}. Assim, foi produzido o arquivo {\ttfamily utfpr-abntex2.cls} que define o \verb|documentclass| específico para a UTFPR.
-
-% Antes de começar a escrever o seu trabalho acadêmico utilizando este \emph{template}, é importante saber que há dois arquivos que você precisará editar para que a capa e a folha de rosto de seu trabalho sejam geradas automaticamente.
-% São eles os arquivos {\ttfamily capa.tex} e {\ttfamily folha-rosto.tex}, ambos no diretório  {\ttfamily /elementos-pre-textuais}.
-% No arquivo {\ttfamily capa.tex} deverá ser informado nome do autor, título do trabalho, natureza do trabalho, nome do orientador e outras informações necessárias.
-% No arquivo {\ttfamily folha-rosto.tex}, que contém o texto padrão estabelecendo que este documento é um requisito parcial para a obtenção do título pretendido, será necessário apenas comentar as linhas que não se aplicam ao tipo de trabalho acadêmico.
-
-% A compilação para gerar um arquivo no formato pdf, incluindo corretamente as referências bibliográficas, deve ser realizada utilizando o comando \verb|makefile|, disponível na mesma pasta onde está o arquivo principal \verb|utfpr-tcc.tex|. Caso seja alterado o nome do arquivo \verb|utfpr-tcc.tex|, deverá ser alterado no arquivo \verb|makefile| também.
 
 \section{Objetivo}
 \label{sec:objetivo}
 
 \subsection{Objetivo geral}
 \label{sec:objetivoGeral}
-Auxiliar no desenvolvimento dos ativos, soluções web desenvolvidas pela SEDES, no TRE-PB.  Para vistas deste relatório será utilizado como referência o projeto \imprimirtitulo. O sistema deverá ser capaz de receber solicitações dos usuários e exibi-las em um painel onde o gestor deverá analisar os pedidos e montar as viagens adequando: rotas, disponibilidades dos motoristas e passageiros. Nas atividades são contempladas todas as etapas descritas no Modelo de Desenvolvimento de Software adotado pelo TRE-PB.
+Auxiliar no desenvolvimento dos ativos, soluções web desenvolvidas pela SEDES, participando de todas as atividades contempladas pelas etapas descritas no Modelo de Desenvolvimento de Software adotado pelo TRE-PB.  Para vistas deste relatório será utilizado como referência o projeto \imprimirtitulo. O sistema deve ser capaz de receber solicitações dos usuários e exibi-las em um painel onde o gestor deverá analisar os pedidos e montar as viagens adequando: rotas, disponibilidades dos motoristas e passageiros.
 
 \subsection{Objetivos específicos}
 \label{sec:objetivosEspecificos}
-Contribuir na implementação do Sistema de Gestão de Frotas, quando possível oferecendo alternativas para a implementação mediante aos conhecimentos adquiridos na graduação. Ganhar experiência com o fluxo de trabalho da uma equipe de desenvolvimento incorporando conceitos de versionamento de código, sendo capaz de resolver conflitos de códigos, quando houver, e evita-los. Trabalhar com reuniões diárias utilizadas pela abordagem da metodologia SCRUM, planejamento das soluções com a modelagem do negócio e com entregas frequentes sempre buscando feedback das releases pelo cliente. 
+Contribuir na implementação do Sistema de Gestão de Frotas, quando possível oferecendo alternativas para a implementação mediante aos conhecimentos adquiridos na graduação. Ganhar experiência com o fluxo de trabalho da uma equipe de desenvolvimento incorporando conceitos de metodologias ágeis e versionamento de código, sendo capaz de resolver conflitos de códigos, quando houver, e evita-los. Trabalhar com reuniões diárias, planejar soluções com a modelagem do negócio especificando suas respectivas histórias de usuários, codificar utilizando as tecnologias e padrões adotados pela equipe, realizar entregas frequentes sempre buscando feedback das releases pelo cliente e gerar documentação explicando as funcionalidades e como utiliza-las. 
 
-
-% \section{ORGANIZAÇÃO DO TRABALHO}
-% \label{sec:organizacaoTrabalho}
-
-% Normalmente ao final da introdução é apresentada, em um ou dois parágrafos curtos, a organização do restante do trabalho acadêmico.
-% Deve-se dizer o quê será apresentado em cada um dos demais capítulos.
+% utilizar met. ágeis, trabalhar em equipe, participar de reuniões, documentar, especificar, implementar...
 
 \section{A Empresa}\footnote{http://www.tre-pb.jus.br/institucional/conheca-o-tre-pb/conheca-o-tre-pb}
 \label{sec:empresa}
