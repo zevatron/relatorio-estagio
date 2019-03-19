@@ -345,8 +345,8 @@ h4 {
 }
 
 #objetivosEspecificos {
-    font-size: 64px;
-    width: 1000px;
+    font-size: 60px;
+    /* width: 1000px; */
 }
 #objetivosEspecificos span{
     font-size: 90px;
@@ -354,6 +354,19 @@ h4 {
 
 #objetivosEspecificos ul{
     list-style-type: disc;
+}
+
+#tecnologia.past h2,
+#tecnologia.future h2 {
+    transform:        scale(3);
+    transition: 1s;
+}
+#tecnologia.present h2 {
+    transform:        scale(1);
+    transition: 1s;
+}
+#tecnologias img{
+    width: 64px;
 }
 
 /*
