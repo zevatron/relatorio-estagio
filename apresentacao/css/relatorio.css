@@ -368,6 +368,14 @@ h4 {
 #tecnologias img{
     width: 64px;
 }
+#tecnologias.past img {
+    transform:        rotate(-10deg);
+    transition: 1s;
+}
+#tecnologias.present img {
+    transform:        rotate(0deg);
+    transition: 0.5s;
+}
 
 /*
     Second step is nothing special, just a text with a link, so it doesn't need
@@ -464,11 +472,11 @@ h4 {
     The 'imagination' step is again some boring font-sizing.
 */
 
-#imagination {
-    width: 600px;
+#projeto {
+    /* width: 600px; */
 }
 
-#imagination .imagination {
+#projeto .imagination {
     font-size: 78px;
 }
 
