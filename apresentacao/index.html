@@ -262,7 +262,7 @@
         
     </div>
 
-    <div id="entity" class="step" data-x="10000" data-y="3000" data-z="5000" data-rotate="20" data-scale="1">
+    <div id="entity" class="step" data-x="11000" data-y="3000" data-z="7000" data-rotate="0" data-scale="1">
         <pre>
             <code>
                 @Entity
@@ -300,7 +300,7 @@
             </code>
         </pre>
     </div>
-    <div id="manager" class="step" data-x="10450" data-y="3000" data-z="4500" data-rotate-y="90"  data-scale="1" >
+    <div id="manager" class="step" data-x="11450" data-y="3000" data-z="6550" data-rotate-y="90"  data-scale="1" >
         <pre>
             <code>
                 import org.springframework.stereotype.Service;
@@ -340,7 +340,7 @@
         </pre>
     </div>
 
-    <div id="dao" class="step" data-x="10000" data-y="3000" data-z="4000" data-rotate-y="180"  data-scale="1" >
+    <div id="dao"   class="step" data-x="11000" data-y="3000" data-z="6100" data-rotate-y="180"  data-scale="1" >
         <pre><code>
                 import org.springframework.stereotype.Repository;
                 @Repository
@@ -380,7 +380,65 @@
         </code></pre>
 
     </div>
-    <div id="sql" class="step" data-x="8450" data-y="3000" data-z="3000" data-rotate-y="270"  data-scale="1" >
+    <div id="sql"   class="step" data-x="10550" data-y="3000" data-z="6550" data-rotate-y="270"  data-scale="1" >
+        <pre><code>
+                CREATE TABLE "VEICULOS"."VEICULO" 
+                (	"ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "CODIGO_RENAVAM" VARCHAR2(11 CHAR) NOT NULL ENABLE, 
+                 "LOCAL" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MODELO" VARCHAR2(20 CHAR) NOT NULL ENABLE, 
+                 "PLACA" VARCHAR2(7 CHAR) NOT NULL ENABLE, 
+                 "SITUACAO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "CHASSI" VARCHAR2(17 CHAR) NOT NULL ENABLE, 
+                 "TIPO_VEICULO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MARCA_ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "REPRESENTACAO" NUMBER(1,0) NOT NULL ENABLE, 
+                 "MOTORISTA_RESPONSAVEL_ID" NUMBER(19,0), 
+                 "ANO_FABRICACAO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "ANO_MODELO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "NUMERO_PASSAGEIROS" NUMBER(2,0) NOT NULL ENABLE, 
+                 "ATIVO" NUMBER(1,0) NOT NULL ENABLE, 
+                  CONSTRAINT "PK_VEICULO" PRIMARY KEY ("ID")
+               USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+               STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+               PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+               BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+               TABLESPACE "VEICULOS"  ENABLE, 
+                  CONSTRAINT "UK_VEICULO_PLACA" UNIQUE ("PLACA") 
+                  CONSTRAINT "FK_VEICULO_MARCA" FOREIGN KEY ("MARCA_ID")
+                   REFERENCES "VEICULOS"."MARCA" ("ID") ENABLE
+        </code></pre>
+    </div>
+    <div id="jasper"   class="step" data-x="11020" data-y="2630" data-z="6550" data-rotate-x="90"  data-scale="1" >
+        <pre><code>
+                CREATE TABLE "VEICULOS"."VEICULO" 
+                (	"ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "CODIGO_RENAVAM" VARCHAR2(11 CHAR) NOT NULL ENABLE, 
+                 "LOCAL" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MODELO" VARCHAR2(20 CHAR) NOT NULL ENABLE, 
+                 "PLACA" VARCHAR2(7 CHAR) NOT NULL ENABLE, 
+                 "SITUACAO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "CHASSI" VARCHAR2(17 CHAR) NOT NULL ENABLE, 
+                 "TIPO_VEICULO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MARCA_ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "REPRESENTACAO" NUMBER(1,0) NOT NULL ENABLE, 
+                 "MOTORISTA_RESPONSAVEL_ID" NUMBER(19,0), 
+                 "ANO_FABRICACAO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "ANO_MODELO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "NUMERO_PASSAGEIROS" NUMBER(2,0) NOT NULL ENABLE, 
+                 "ATIVO" NUMBER(1,0) NOT NULL ENABLE, 
+                  CONSTRAINT "PK_VEICULO" PRIMARY KEY ("ID")
+               USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+               STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+               PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+               BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+               TABLESPACE "VEICULOS"  ENABLE, 
+                  CONSTRAINT "UK_VEICULO_PLACA" UNIQUE ("PLACA") 
+                  CONSTRAINT "FK_VEICULO_MARCA" FOREIGN KEY ("MARCA_ID")
+                   REFERENCES "VEICULOS"."MARCA" ("ID") ENABLE
+        </code></pre>
+    </div>
+    <div id="ireports"   class="step" data-x="11020" data-y="3430" data-z="6550" data-rotate-x="270"  data-scale="1" >
         <pre><code>
                 CREATE TABLE "VEICULOS"."VEICULO" 
                 (	"ID" NUMBER(19,0) NOT NULL ENABLE, 
