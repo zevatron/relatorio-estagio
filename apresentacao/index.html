@@ -266,11 +266,34 @@
         <pre>
             <code>
                 @Entity
-                @Table(name="VEICULO")
+                @Table(name = "VEICULO")
+                @SequenceGenerator(name = "sequence", sequenceName = "SQ_VEICULO", allocationSize = 1)
                 public class Veiculo extends ObjetoIdentifiable {
-                    @ManytoOne
-                    @JoinColumn(name="MOTORISTA_RESPONSAVEL_ID")
+                    @ManyToOne
+                    @JoinColumn(name = "MOTORISTA_RESPONSAVEL_ID")
                     private Motorista motoristaResponsavel;
+                    ...
+                    @Column(name = "PLACA")
+                    private String placa;
+
+                    @Column(name = "CHASSI")
+                    private String chassi;
+
+                    @ManyToOne
+                    @JoinColumn(name = "MARCA_ID")
+                    private Marca marca;
+
+                    @Column(name = "MODELO")
+                    private String modelo;
+                    ...
+                    @Column(name = "NUMERO_PASSAGEIROS")
+                    private Integer numeroPassageiros;
+
+                    @Column(name = "TIPO_VEICULO")
+                    private String tipo;
+
+                    @Column(name = "ATIVO")
+                    private Boolean ativo;
                 }
 
                 
@@ -280,17 +303,111 @@
     <div id="manager" class="step" data-x="10450" data-y="3000" data-z="4500" data-rotate-y="90"  data-scale="1" >
         <pre>
             <code>
-                @Entity
-                @Table(name="VEICULO")
-                public class Veiculo extends ObjetoIdentifiable {
-                    @ManytoOne
-                    @JoinColumn(name="MOTORISTA_RESPONSAVEL_ID")
-                    private Motorista motoristaResponsavel;
-                }
+                import org.springframework.stereotype.Service;
+                import org.springframework.transaction.annotation.Transactional;
 
-                
+                @Service
+                @Transactional
+                public class VeiculoManager extends IdentifiableManager<Veiculo, Long, VeiculoDao> {
+                    public void salvar(Veiculo veiculo) {
+                        ...
+                        try {
+                            getDao().salvar(veiculo);
+                            getLogEntidadeManager().salvarLogInclusaoAlteracao(veiculoAntigo, veiculo);
+
+                        } catch (DadosException ex) {
+
+                            if (ManagerUtil.existeConstraintNaExcecao("UK_VEICULO_PLACA", ex)) {
+                                throw new NegocioException("Já existe um veículo cadastrado com a mesma placa informada.", ex);
+                            }
+                            throw new RuntimeException("Problema gravando os dados.", ex);
+                        }
+                    }
+                    ...
+                    
+                    public List<Veiculo> listarTodosVeiculos(){
+                        return getDao().listar();
+                    }
+                    public List<Veiculo> listarAtivosDisponiveis() {
+                        VeiculoFilter veiculoFiltro = new VeiculoFilter();
+                        veiculoFiltro.setSituacao(SituacaoEnum.DISPONIVEL);
+                        veiculoFiltro.setAtivo(Boolean.TRUE);
+                        return getDao().listar(veiculoFiltro);
+                    }
+                }
+               
             </code>
         </pre>
+    </div>
+
+    <div id="dao" class="step" data-x="10000" data-y="3000" data-z="4000" data-rotate-y="180"  data-scale="1" >
+        <pre><code>
+                import org.springframework.stereotype.Repository;
+                @Repository
+                public class VeiculoDao extends JpaDao<Veiculo, Long> {
+                    public List<Veiculo> listar(VeiculoFilter filtro) {
+                        SQLBuilder sql = new SQLBuilder("select v from Veiculo v where 1=1");
+                
+                        if (filtro.getLocal() != null) {
+                            sql.add("and v.local = :local").param("local", filtro.getLocal().getCodigo());
+                        }
+                        if (filtro.getPlaca() != null && !filtro.getPlaca().isEmpty()) {
+                            sql.add("and v.placa like :placa").param("placa", "%" + filtro.getPlaca().toUpperCase() + "%");
+                        }
+                        if (filtro.getMarca() != null && !filtro.getMarca().getNome().isEmpty()) {
+                            sql.add("and v.marca = :marca").param("marca", filtro.getMarca());
+                        }
+                        if (filtro.getAtivo() != null) {
+                            sql.add("and v.ativo = :ativo").param("ativo", filtro.getAtivo());
+                        }
+                        if (filtro.getSituacao() != null) {
+                            sql.add("and v.situacao = :situacao").param("situacao", filtro.getSituacao().getCodigo());
+                        }
+                        if (filtro.getTipo() != null) {
+                            sql.add("and v.tipo = :tipo").param("tipo", filtro.getTipo().getCodigo());
+                        }
+                        sql.add("order by v.modelo");
+                        return criarQuery(sql).getResultList();
+                    }
+                
+                    @Override
+                    public List<Veiculo> listar() {
+                        String sql = "select v from Veiculo v order by v.modelo";
+                        return criarQuery(sql).getResultList();
+                    }
+                
+                }
+        </code></pre>
+
+    </div>
+    <div id="sql" class="step" data-x="8450" data-y="3000" data-z="3000" data-rotate-y="270"  data-scale="1" >
+        <pre><code>
+                CREATE TABLE "VEICULOS"."VEICULO" 
+                (	"ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "CODIGO_RENAVAM" VARCHAR2(11 CHAR) NOT NULL ENABLE, 
+                 "LOCAL" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MODELO" VARCHAR2(20 CHAR) NOT NULL ENABLE, 
+                 "PLACA" VARCHAR2(7 CHAR) NOT NULL ENABLE, 
+                 "SITUACAO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "CHASSI" VARCHAR2(17 CHAR) NOT NULL ENABLE, 
+                 "TIPO_VEICULO" CHAR(1 CHAR) NOT NULL ENABLE, 
+                 "MARCA_ID" NUMBER(19,0) NOT NULL ENABLE, 
+                 "REPRESENTACAO" NUMBER(1,0) NOT NULL ENABLE, 
+                 "MOTORISTA_RESPONSAVEL_ID" NUMBER(19,0), 
+                 "ANO_FABRICACAO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "ANO_MODELO" NUMBER(4,0) NOT NULL ENABLE, 
+                 "NUMERO_PASSAGEIROS" NUMBER(2,0) NOT NULL ENABLE, 
+                 "ATIVO" NUMBER(1,0) NOT NULL ENABLE, 
+                  CONSTRAINT "PK_VEICULO" PRIMARY KEY ("ID")
+               USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+               STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+               PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+               BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+               TABLESPACE "VEICULOS"  ENABLE, 
+                  CONSTRAINT "UK_VEICULO_PLACA" UNIQUE ("PLACA") 
+                  CONSTRAINT "FK_VEICULO_MARCA" FOREIGN KEY ("MARCA_ID")
+                   REFERENCES "VEICULOS"."MARCA" ("ID") ENABLE
+        </code></pre>
     </div>
 
     <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
