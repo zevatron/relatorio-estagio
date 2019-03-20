@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
 
-    <link href="css/relatorio.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extras/highlight/styles/github.css">
+    <link rel="stylesheet" href="css/relatorio.css" />
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -261,6 +262,37 @@
         
     </div>
 
+    <div id="entity" class="step" data-x="10000" data-y="3000" data-z="5000" data-rotate="20" data-scale="1">
+        <pre>
+            <code>
+                @Entity
+                @Table(name="VEICULO")
+                public class Veiculo extends ObjetoIdentifiable {
+                    @ManytoOne
+                    @JoinColumn(name="MOTORISTA_RESPONSAVEL_ID")
+                    private Motorista motoristaResponsavel;
+                }
+
+                
+            </code>
+        </pre>
+    </div>
+    <div id="manager" class="step" data-x="10450" data-y="3000" data-z="4500" data-rotate-y="90"  data-scale="1" >
+        <pre>
+            <code>
+                @Entity
+                @Table(name="VEICULO")
+                public class Veiculo extends ObjetoIdentifiable {
+                    @ManytoOne
+                    @JoinColumn(name="MOTORISTA_RESPONSAVEL_ID")
+                    private Motorista motoristaResponsavel;
+                }
+
+                
+            </code>
+        </pre>
+    </div>
+
     <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
         <p>one more thing...</p>
     </div>
@@ -358,6 +390,13 @@ if ("ontouchstart" in document.documentElement) {
     Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
     
 -->
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js -->
+     <script type="text/javascript" src="extras/highlight/highlight.pack.js"></script>
+     <!-- <script type="text/javascript" src="../../extras/mermaid/mermaid.min.js"></script> -->
+     <!-- <script type="text/javascript" src="../../extras/markdown/markdown.js"></script> -->
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
 

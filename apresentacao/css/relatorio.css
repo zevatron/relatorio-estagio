@@ -250,6 +250,17 @@ a:focus {
     transition: opacity 1s;
 }
 
+/* Highlight.js used for coloring pre > code blocks. */
+.step pre > code {
+    font-size: 14px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* Inline code, no Highlight.js */
+code {
+    font-family: "Cutive mono","Courier New", monospace;
+}
+
 /*
   Speaker notes allow you to write comments within the steps, that will not 
   be displayed as part of the presentation. However, they will be picked up
