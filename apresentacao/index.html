@@ -447,33 +447,6 @@
         </code></pre>
     </div>
     <div id="ireports"   class="step" data-x="11020" data-y="3430" data-z="6550" data-rotate-x="270"  data-scale="1" >
-        <pre><code>
-                CREATE TABLE "VEICULOS"."VEICULO" 
-                (	"ID" NUMBER(19,0) NOT NULL ENABLE, 
-                 "CODIGO_RENAVAM" VARCHAR2(11 CHAR) NOT NULL ENABLE, 
-                 "LOCAL" CHAR(1 CHAR) NOT NULL ENABLE, 
-                 "MODELO" VARCHAR2(20 CHAR) NOT NULL ENABLE, 
-                 "PLACA" VARCHAR2(7 CHAR) NOT NULL ENABLE, 
-                 "SITUACAO" CHAR(1 CHAR) NOT NULL ENABLE, 
-                 "CHASSI" VARCHAR2(17 CHAR) NOT NULL ENABLE, 
-                 "TIPO_VEICULO" CHAR(1 CHAR) NOT NULL ENABLE, 
-                 "MARCA_ID" NUMBER(19,0) NOT NULL ENABLE, 
-                 "REPRESENTACAO" NUMBER(1,0) NOT NULL ENABLE, 
-                 "MOTORISTA_RESPONSAVEL_ID" NUMBER(19,0), 
-                 "ANO_FABRICACAO" NUMBER(4,0) NOT NULL ENABLE, 
-                 "ANO_MODELO" NUMBER(4,0) NOT NULL ENABLE, 
-                 "NUMERO_PASSAGEIROS" NUMBER(2,0) NOT NULL ENABLE, 
-                 "ATIVO" NUMBER(1,0) NOT NULL ENABLE, 
-                  CONSTRAINT "PK_VEICULO" PRIMARY KEY ("ID")
-               USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-               STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-               PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-               BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-               TABLESPACE "VEICULOS"  ENABLE, 
-                  CONSTRAINT "UK_VEICULO_PLACA" UNIQUE ("PLACA") 
-                  CONSTRAINT "FK_VEICULO_MARCA" FOREIGN KEY ("MARCA_ID")
-                   REFERENCES "VEICULOS"."MARCA" ("ID") ENABLE
-        </code></pre>
     </div>
 
     <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
