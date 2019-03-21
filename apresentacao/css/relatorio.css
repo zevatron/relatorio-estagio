@@ -527,6 +527,11 @@ h4 {
     background-image: url("../../dados/figuras/veiculos-atividade2.png");
     background-repeat: no-repeat;
 }
+#planejamento {
+    width: 1300px;
+    height: 1600px;
+    background-image: url("../../dados/figuras/veiculos-planejamento.png");
+    
 
 #source q {
     font-size: 60px;
