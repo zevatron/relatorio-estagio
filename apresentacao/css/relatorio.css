@@ -362,6 +362,13 @@ h4 {
     height: 740px;
     background-image: url("../../dados/figuras/veiculos-ireport.png")
 }
+#tela {
+    width: 1300px;
+    height: 740px;
+    background-image: url("../../dados/figuras/tela.png");
+    background-repeat: no-repeat;
+    background-position: center;    
+}
 
 #resultado.past h2 {
     transform:        scale(3);
