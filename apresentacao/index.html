@@ -453,135 +453,45 @@
             }
         </code></pre>
     </div>
+    <div id="ireports"   class="step" data-x="11020" data-y="3430" data-z="6550" data-rotate-x="270"  data-scale="1" >
+    </div>
 
-    <div id="tela"   class="step" data-x="11020" data-y="2630" data-z="6550" data-rotate-x="90"  data-scale="1" >
+    <div id="tela"   class="step" data-x="13020" data-y="2630" data-z="6550" data-rotate-x="270"  data-scale="1" >
         <pre><code>
-                <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-                template="/WEB-INF/facelets/templates/layout-menu.xhtml">
 
-                <f:metadata>
-                    <f:viewAction action="#{analisarSolicitacaoBean.onPesquisar()}"/>
-                </f:metadata>
-
-                <ui:define name="body">
-                    <p:socket channel="/solicitacoes">
-                        <p:ajax event="message" update=":mainForm:panelListaSolPendentes" listener="#{analisarSolicitacaoBean.onPesquisar()}"/>
-                    </p:socket>
-                    
-                    <h:form id="mainForm">
-                        
-                        <p:panel id="painelGestao" header="Solicitações">
-                            <p:panel id="painelFiltro" style="margin-top: 0.3em;">
-                                <h:outputText value="Critérios de pesquisa" class="texto_azulSimples" />
-                                <h:panelGrid columns="3"
-                                            columnClasses="panel_coluna_1">
-
-                                    <h:outputLabel  value="Nº da solicitação " for="numSol"/>
-                                    <p:inputText id="numSol" value="#{analisarSolicitacaoBean.filtro.codigo}" size="10"/>
-                                    <p:message for="numSol" />
-                                    
-                                    <h:outputLabel  value="Período" for="dtPartida"/>
-                                    <h:panelGroup>
-                                        <p:calendar id="dtPartida" value="#{analisarSolicitacaoBean.filtro.dataPartida}"
-                                                    pattern="dd/MM/yyyy" mask="true" label="data de partida" locale="pt" size="10" />
-                                        à
-                                        <p:calendar id="dtRetorno" value="#{analisarSolicitacaoBean.filtro.dataRetorno}"
-                                                    pattern="dd/MM/yyyy" mask="true" label="data de retorno" locale="pt" size="10" />
-                                    </h:panelGroup>
-                                    ...
-
-                                    <h:outputLabel  value="Nº da solicitação de diárias (SD)" for="numSD"/>
-                                    <p:inputMask id="numSD" value="#{analisarSolicitacaoBean.filtro.numeroSD}" 
-                                                size="10" mask="9999/9999" converter="numeroSDConverter" autoClear="false"
-                                                placeholder="numero/ano" >                            
-                                    </p:inputMask>    
-                                    <p:message for="numSD" />
-
-                                </h:panelGrid>
-                                <div style="display: flex; align-items: center; margin-top: 0.4em;">
-                                    <p:commandButton value="Pesquisar" id="btnPesquisar"
-                                                    icon="botaoPesquisar"
-                                                    style=""
-                                                    update=":mainForm:panelListaSolPendentes, mainForm:painelFiltro, :message"
-                                                    action="#{analisarSolicitacaoBean.onPesquisar()}"/>
-                                    <p:ajaxStatus style="margin-left: 1em;">
-                                        <f:facet name="start">
-                                            <h:graphicImage name="ajax-loaderBlue.gif" library="images" alt="Pesquisar" width="26"/>
-                                        </f:facet>
-                                        <f:facet name="complete">  
-                                            <h:outputText value="" />  
-                                        </f:facet>
-                                    </p:ajaxStatus>
-                                </div>
-                            </p:panel>
-
-                            ...
-
-                </ui:define>
-            </ui:composition>
         </code></pre>
     </div>
 
-    <div id="bean"   class="step" data-x="11020" data-y="2630" data-z="6550" data-rotate-x="90"  data-scale="1" >
+    <div id="bean" class="step" data-x="13020" data-y="1630" data-z="7550" data-rotate-x="270" data-scale="1" >
         <pre><code>
             import org.springframework.stereotype.Controller;
-
             @Controller
             @SpringScopeView
             public class IncluirEditarSolicitacaoBean extends AbstractManagedBean {
-                ... 
                 private Solicitacao solicitacao;
                 private List<UF> ufs;
                 private UF ufPB;
-                private PassageiroApto passageiroSelecionado;
                 private List<PassageiroApto> listaPassageiros;
-                private String horaRetorno, horaPartida;
-                private UF ufSelecionado;
+                ...           
                 private List<Municipio> municipios;
-                private Map<Integer, String> nomesMunicipios;
-
-                private Municipio municipioSelecionado;
                 private List<UnidadeAdministrativa> unidades;
                 @Inject
                 private SolicitacaoManager solicitacaoManager;
                 @Inject
                 private PassageiroManager passageiroManager;
                 @Inject
-                private PassageiroAptoManager passageiroAptoManager;
-                @Inject
-                private UFManager ufManager;
-                @Inject
-                private MunicipioManager municipioManager;
-                @Inject
-                private UnidadeAdministrativaManager unidadeAdministrativaManager;
-                @Inject
                 private AutenticacaoBean autenticacaoBean;
 
                 @PostConstruct
                 public void inicializar() {
-
                     Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
-                    
                     Number id = (Number) flash.get(PARAM_ID);
-                    voltarPara = (String) flash.get(PARAM_VOLTAR);
-                    voltarAnterior = (String) flash.get(PARAM_VOLTAR_ANTERIOR);
-
                     if (!flash.containsKey(PARAM_ID) || voltarPara == null || voltarPara.isEmpty()) {
                         throw new RuntimeException("Acesso fora de contexto.");
                     }
-
                     if (id == null) {
                         solicitacao = new Solicitacao();
-                        solicitacao.setTipoVeiculo(TipoVeiculoEnum.PASSEIO);
-                        solicitacao.setPassageiros(new ArrayList<>());
-                        solicitacao.setTrechos(new ArrayList<>());
-                        solicitacao.setDiarias(new ArrayList<>());
-                        solicitacao.setSiglaUnidadeSolicitante(autenticacaoBean.getLotacaoAtualServidor());
+                        ...
                         solicitacao.setSiglaUnidadeUsuarioSolicitante(autenticacaoBean.getLotacaoAtualServidor());
                         temDiaria = false;
                     } else {
