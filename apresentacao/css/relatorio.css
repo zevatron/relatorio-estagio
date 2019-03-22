@@ -483,10 +483,6 @@ h4 {
     The 'imagination' step is again some boring font-sizing.
 */
 
-#projeto {
-    /* width: 600px; */
-}
-
 #projeto .imagination {
     font-size: 78px;
 }
@@ -544,6 +540,23 @@ h4 {
     background-image: url("../../dados/figuras/veiculos-ireport.png")
 }
 
+#resultado.past h2 {
+    transform:        scale(3);
+    transition: 1s;
+}
+#resultado.present h2 {
+    transform:        scale(1);
+    transition: 1s;
+}
+.resultados b{
+    font-size: 80px;
+}
+#frase {
+    font-size: 40px;
+}
+#agradecimentos {
+    text-align: center;
+}
 #source q {
     font-size: 60px;
 }
