@@ -11,7 +11,6 @@ Nesse capítulo será explanada minha participação no processo de desenvolvime
 O projeto Veículos foi concebido com o objetivo de controlar as solicitações de veículos e as viagens realizadas, promovendo uma melhor gestão da frota de veículos do TRE-PB bem como possibilitando a realização de auditorias com base nos dados contidos no sistema.
 O sistema é hoje um ativo de TI que foi desenvolvido pela SEDES e está descrito no catálogo técnico de sistemas da COSIS conforme \autoref{fig:figura-ativoTI}. 
 
-% TODO: recortar imagem para se adequar melhor à página
 \begin{figure}[!htb]
     \centering
     \caption{Catálogo técnico de sistemas - Veículos}
@@ -139,7 +138,6 @@ Com o domínio do problema já definido, são então criadas as tabelas do banco
 
 Com as tabelas já criadas e relacionadas, começa-se a codificação propriamente dita na linguagem Java. As classes do modelo são codificadas com seus respectivos atributos e métodos e mapeadas através da interface JPA. Na \autoref{fig:figura-entidade} é possível ver a entidade que define um veículo na aplicação já com as anotações que a mapeiam com o banco de dados.
 
-% TODO: print trocar fundo
 \begin{figure}[!htb]
     \centering
     \caption{Entidade Java - Veículo}
@@ -165,7 +163,6 @@ O Spring possui uma arquitetura baseada em interfaces e POJOs, oferecendo aos PO
 
 Por último temos a camada de persistência DAO. Esses objetos são responsáveis pelas operações realizadas no banco de dados. A utilização do mesmo é um bom padrão de desenvolvimento, pois separa as regras de negócio da aplicação das operações de manipulação do banco de dados. Os objetos DAO fazem uso de um objeto do tipo \textit{EntityManager}, que é criado pelo Hibernate e também utilizam o Spring para realizar a injeção de dependências no DAO, veja o exemplo na \autoref{fig:figura-dao}. 
 
-% TODO: print trocar fundo
 \begin{figure}[!htb]
     \centering
     \caption{Manager Java - Veículo}
@@ -174,7 +171,6 @@ Por último temos a camada de persistência DAO. Esses objetos são responsávei
     \label{fig:figura-manager}
 \end{figure}
 
-% TODO: print trocar fundo
 \begin{figure}[!htb]
     \centering
     \caption{DAO Java - Veículo}
@@ -200,7 +196,6 @@ No trecho exibido pela \autoref{fig:figura-jasperreports} é possível ver a inv
     \label{fig:figura-irreport}
 \end{figure}
 
-% TODO: print trocar fundo
 \begin{figure}[!htb]
     \centering
     \caption{Bean do Formulário- Veículo}
