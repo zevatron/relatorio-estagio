@@ -5,12 +5,13 @@
 
 Nesse capítulo será explanada minha participação no processo de desenvolvimento do projeto o qual tive a oportunidade de participar desde a concepção, homologação, correção de problemas, criação de uma nova versão com expressiva mudança no modelo de dados até a implementação da aplicação em produção.
 
-\section{\imprimirtitulo}
+\section{Veículos: Sistema de Gestão de Frotas do TRE-PB}
 \label{sec:atividadesRealizadasVeiculos}
 
-O projeto \imprimirtitulo \space foi concebido com o objetivo de controlar as solicitações de veículos e as viagens realizadas, promovendo uma melhor gestão da frota de veículos do TRE-PB bem como possibilitando a realização de auditorias com base nos dados contidos no sistema.
+O projeto Veículos foi concebido com o objetivo de controlar as solicitações de veículos e as viagens realizadas, promovendo uma melhor gestão da frota de veículos do TRE-PB bem como possibilitando a realização de auditorias com base nos dados contidos no sistema.
 O sistema é hoje um ativo de TI que foi desenvolvido pela SEDES e está descrito no catálogo técnico de sistemas da COSIS conforme \autoref{fig:figura-ativoTI}. 
 
+% TODO: recortar imagem para se adequar melhor à página
 \begin{figure}[!htb]
     \centering
     \caption{Catálogo técnico de sistemas - Veículos}
@@ -59,6 +60,7 @@ O processo de desenvolvimento e manutenção de \textit{software} se inicia com 
 Uma reunião inicial é realizada entre todos os interessados. A COSIS reúne o gestor do sistema, o time de desenvolvimento e o cliente. 
 
 Para o time já se inicia o processo de imersão, onde após ouvir as necessidades descritas pelo cliente começa a imaginar e descrever os possíveis requisitos necessários para a solução. 
+Nessa fase todos no time de desenvolvimento atuam no papel de analista, ajudando a descrever e colher as informações do cliente.
 Toda reunião realizada entre a equipe e o cliente é descrita cronologicamente e fica publicada na categoria de Atas/Reuniões da SEDES no sitio Wiki do TRE-PB, com a data, hora de início e fim e o nome de todos os participantes, conforme \autoref{fig:figura-ataReuniao1}. Dessa forma, todos tem acesso ao que realmente foi solicitado.
 
 \begin{figure}[!htb]
@@ -69,7 +71,10 @@ Toda reunião realizada entre a equipe e o cliente é descrita cronologicamente 
     \label{fig:figura-ataReuniao1}
 \end{figure}
 
-Posteriormente, o time volta a se reunir e descrever as histórias de usuário na forma de requisitos a serem implementados. Com os requisitos descritos e cadastrados no sistema de gestão de projetos, o Redmine, na forma de tarefas e atividades, é possível mensurar o tamanho de cada atividade e assim estimar o tempo necessário para conclusão do projeto.  
+Posteriormente, o time volta a se reunir e descrever as histórias de usuário na forma de requisitos a serem implementados. 
+Nessa fase assumimos o papel de especificador e ajudamos a cadastrar os requisitos.
+Essas histórias se transormam em atividades menores que serão atribuidadas individualmente aos membros do time.
+Com os requisitos descritos e cadastrados no sistema de gestão de projetos, o Redmine, na forma de tarefas e atividades, é possível mensurar o tamanho de cada atividade e assim estimar o tempo necessário para conclusão do projeto.  
 
 \section{Planejamento}
 \label{sec:atividadesRealizadasPlanejamento}
@@ -85,15 +90,13 @@ desenvolvimento e distribuídas responsabilidades.\cite[p.~2]{Portaria37:2017}
 
 As \textit{releases} definidas são apresentadas como as versões que serão entregues e são separadas conforme ordem de prioridade das atividades e requisitos, como mostra a \autoref{fig:figura-planejamento}.
 
-% TODO: Realizar o recorte da imagem de modo que fique menor
-
-% \begin{figure}[!htb]
-%     \centering
-%     \caption{Planejamento das versões}
-%     \includegraphics[width=0.75\textwidth]{dados/figuras/veiculos-planejamento.png}
-%     \fonte{SEDES}
-%     \label{fig:figura-planejamento}
-% \end{figure}
+\begin{figure}[!htb]
+    \centering
+    \caption{Planejamento das versões}
+    \includegraphics[width=0.75\textwidth]{dados/figuras/veiculos-planejamento.png}
+    \fonte{SEDES}
+    \label{fig:figura-planejamento}
+\end{figure}
 
 \section{Desenvolvimento}
 \label{sec:atividadesRealizadasDesenvolvimento}
